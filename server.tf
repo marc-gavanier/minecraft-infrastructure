@@ -12,7 +12,8 @@ resource "aws_instance" "minecraft_server" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.sg_minecraft.id]
-  user_data              = file("init-script.sh")
+  user_data              = file("assets/init-script.sh")
+
   tags = merge(local.tags, {
     Name = "Minecraft Bedrock Edition Server"
   })

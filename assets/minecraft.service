@@ -1,0 +1,14 @@
+[Unit]
+Description=Minecraft Server
+
+[Service]
+WorkingDirectory=/opt/minecraft/server
+ExecStart=/opt/minecraft/server/bedrock_server
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=mc
+User=minecraft
+
+[Install]
+WantedBy=multi-user.target
