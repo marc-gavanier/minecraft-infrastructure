@@ -23,15 +23,15 @@ resource "aws_security_group" "sg_minecraft" {
   description = "Minecraft Bedrock Edition Server Security Group"
 
   ingress {
-    description = "HTTP port"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
+    description = "Minecraft server UDP port"
+    from_port   = 19132
+    to_port     = 19132
+    protocol    = "udp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    description = "Disallow"
+    description = "Disallow all egress"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
